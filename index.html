@@ -1,0 +1,107 @@
+<html>
+<head>
+<style>
+.div1 {
+  height: 840px;
+  width: 40%;
+  border: 3px outset moccasin;
+  background-color: #e4e4e4;    
+  text-align: left;
+  margin: auto;
+  padding: 10px;
+  
+  min-height: 500px;
+
+ 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+</style>
+<title>form</title>
+</head>
+<center><h1 style="color:red";>Mahindra service feedback form</h1></center>
+<div class="div1">
+    <h3>Customer Details</h3>
+<div onmouseover="mOver(this)" onmouseout="mOut(this)" 
+style="background-color:#D94A38;width:100%;height:20;">
+</div>
+
+<script>
+function mOver(obj) {
+  obj.innerHTML = "LIVE YOUNG LIVE FREE"
+}
+
+function mOut(obj) {
+  obj.innerHTML = "Mahindra"
+}
+function formvalidate()
+{
+    var fn=document.f2.fname.value;
+    var ln=document.f2.lname.value;
+    var car=document.f2.cn.value;
+   
+var errors =[];
+  if(fn=="")
+    errors[errors.length]= "First-Name must be filled out";
+  if(ln=="")
+    errors[errors.length]= "Last-Name must be filled out";
+  if(fn!==""&&ln!=="") {
+    if(fn==ln)
+      errors[errors.length]= "First-Name and Last-Name must be different";
+  if(car=="")
+    errors[errors.length]= "Car number must be filled out";
+if(document.f2.a.checked==0 && document.f2.b.checked==0 && document.f2.d.checked==0 && document.f2.s.checked==0)
+      errors[errors.length]= "Must be given"; 
+  }
+  
+  if(errors.length > 0) 
+      reportErrors(errors);
+  function reportErrors(errors){
+    var msg = "Please Enter Valid Data!\n";
+    for (var i = 0; i<errors.length; i++) {
+      var numError = i + 1;
+      msg += "\n" + numError + ". " + errors[i];
+      }
+      alert(msg);
+  }
+}  
+</script><br>
+
+
+   <form name="f2" onsubmit="formvalidate()">
+   <fieldset>
+   <label for="name">First Name:<input type="text" id="fname" title="Enter your first name" placeholder="Name in captial " ></label><br><br>
+   <label for="form">Last Name:<input type="text" id="lname"  title="Enter your second name" placeholder="Initial only" ></label><br><br>
+    <label for="phone">Phone number:</label>
+    <input type="text"  pattern="[6789][0-9]{9}" placeholder="+91" required><br><br>
+    Address:<textarea name="message" rows="10" cols="30"></textarea><div><br>
+         
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Enter email" pattern="[^ @]*@[^ @]*" name="email">
+                </label>
+                
+
+                <fieldset>
+                    <legend><h3><i>CAR Info</i></h3></legend>
+                    <label for="text">Car No:<input type="text" id="cn" title="Ex: TN88Y6969" placeholder="Number Plate no" ></label><br><br>
+                    <label for="text">Chace Number<input type="text" id="form"  title="Unique no" placeholder="MAH001" ></label><br><br>
+                    <label for="form">SERVICE-Check-in: <input type="date" id="form"></label><label for="form"> 
+                     <br><br>SERVICE-Check-out: <input type="date" id="form"></label><br><br>
+                    CAR Preference:<input type="radio" id="b">Basic<input type="radio" id="a">Average<input type="radio" id="s">standard<input type="radio" id="d">Deluxe<br><br>
+                    <label for="room">SERVICE Rating</label>
+                    <select id="cars" name="cars">
+                      <option value="single">☆☆☆☆☆</option>
+                      <option value="Double">☆☆☆☆</option>
+                      <option value="four">☆☆☆</option>
+                      <option value="four">☆☆</option>
+                      <option value="four">☆</option>
+                     </select><br><br>
+                     Feedback:<textarea name="message" rows="1" cols="50"></textarea><div><br>
+                     
+                     </fieldset><br>
+                     <center><b><input type="submit" value="Register" class="regbtn"></b></center>
+              
+  </form>
+
